@@ -1,0 +1,5 @@
+name = Purchasing Power Helper Module
+description = "Provides extensions for the website."
+dependencies[] = panels
+package = "Purchasing Power"
+core = 7.x

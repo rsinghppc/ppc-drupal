@@ -1,0 +1,11 @@
+name = "Salesforce Webform Fields"
+description = "Get Salesforce Fields for the Salesforce Webform module"
+core = 7.x
+
+package = Integration
+; Information added by drupal.org packaging script on 2013-03-05
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "salesforcewebform"
+datestamp = "1362457819"
+

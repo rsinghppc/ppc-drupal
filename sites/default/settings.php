@@ -1,0 +1,1 @@
+../qa-cms-02.qa.purchasingpwr.com/settings.php

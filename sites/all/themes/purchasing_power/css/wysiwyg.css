@@ -1,0 +1,44 @@
+body.cke_show_borders,
+body.mceContentBody {
+  
+  /* just in case the theme sets a background on the body tag */
+  background: none #FFF;
+  
+  margin: 10px; /* add a bit of spacing so we aren't right to the edge */
+}
+
+
+body {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+p {
+  margin: 0 0 0.5em;
+}
+h1, h2, h3, h4, h5, h5 {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+  line-height: 1em;
+  letter-spacing: 0;
+}
+#region-content h2, .node h2 {
+  border-bottom: 2px solid #CA9B4A;
+  color: #000000;
+  font-family: Tahoma,Arial,Helvetica,sans-serif;
+  font-size: 1.23em;
+  letter-spacing: 0;
+  line-height: 1.2em;
+  margin: 0 0 10px;
+  padding: 0 0 4px;
+}
+
+.image-center {
+  clear: both;
+  margin: 12px 0;
+}
+.image-right {
+  float: right;
+  margin: 8px 0 8px 10px;
+}
+.image-left {
+  float: left;
+  margin: 8px 10px 8px 0;
+}

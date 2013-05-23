@@ -1,0 +1,14 @@
+name = Salesforce Webform
+description = Extends the Webform module to submit to Salesforce
+package = Integration
+dependencies[] = webform
+dependencies[] = salesforcewebform_fields
+core = 7.x
+
+
+; Information added by drupal.org packaging script on 2013-03-05
+version = "7.x-1.0-alpha2"
+core = "7.x"
+project = "salesforcewebform"
+datestamp = "1362457819"
+
