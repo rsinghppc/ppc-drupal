@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>AutoIndex PHP Script: Readme</title>
+	<style type="text/css" title="AutoIndex Default">
+		html, body
+		{
+			font-family: verdana, lucidia, sans-serif;
+			font-size: 13px;
+			background-color: #F0F0F0;
+			color: #000000;
+		}
+		a:visited, a:active
+		{
+			color: #00008F;
+			text-decoration: none;
+		}
+		a:link
+		{
+			color: #0000FF;
+			text-decoration: none;
+		}
+		a:hover
+		{
+			color: #0000FF;
+			text-decoration: overline underline;
+		}
+		#main
+		{
+			border: 1px solid #7F8FA9;
+			font-size: 13px;
+			padding-left: 6px;
+			background: #F2F6FC;
+			color: #000020;
+		}
+		.small
+		{
+			font-size: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id="main">
+<p>
+	<strong>Purchasing Power</strong>
+	
+	<br />
+	
+</p>
+<p>
+        Sorry, the page you requested was not found. 
+<br>
+<br>
+           404 - page not found 
+	
+</p>
+</div>
+
+</body>
+</html>

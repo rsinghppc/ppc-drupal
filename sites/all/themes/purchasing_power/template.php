@@ -13,6 +13,18 @@ drupal_add_library( 'system', 'ui.dialog' );
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
+function get_partner_logo($domain, &$vars) {
+	$c = mysql_connect("localhost", "drupal", "drupal");
+	mysql_select_db("drupal");
+	$result = mysql_query("SELECT logo_url from ppc_client where upper(domain)='" . $domain . "';");
+	$row = mysql_fetch_assoc($result);
+	$logo_url = $row['logo_url'];
+	if (strlen($logo_url) > 0) {
+		$partner_logo_url = '<img src="/sites/all/themes/purchasing_power/img/' . $logo_url . '" class="partnerLogo"/>';
+		$vars['partner_logo_img'] =  $partner_logo_url;
+	}
+	return $retval;
+}
 
 /**
  * Implements hook_process_region().
@@ -33,12 +45,20 @@ function purchasing_power_alpha_process_region( &$vars ){
 				
 				// Changes logo.
 				$vars[ 'logo' ] = $theme->page[ 'logo' ] = drupal_get_path( 'theme', 'purchasing_power' ) . '/img/logo.png';				
-				$vars[ 'logo_img' ] = theme( 'image', array(
+				$jpg[ 'logo_img' ] = theme( 'image', array(
 						'alt'			=>	check_plain( $vars[ 'site_name' ] ),
 						'path'		=>	$vars[ 'logo' ],
 				) );
-				$vars[ 'linked_logo_img' ] = l( $vars[ 'logo_img' ], '<front>', array( 'attributes' => array( 'rel' => 'home', 'title' => check_plain ($vars[ 'site_name' ] ) ), 'html' => TRUE ) );
-				
+				$vars['linked_logo_img'] = l( $vars[ 'logo_img' ], '<front>', 
+					array( 'attributes' => array( 'rel' => 'home', 'title' => check_plain ($vars[ 'site_name' ] ) ), 'html' => TRUE ) );
+
+
+				$domain = $_GET["domain"];
+				$vars['domain'] = get_partner_logo($domain);
+				if ($domain) {
+					get_partner_logo($domain, &$vars);
+				}
+				//$vars['debug_info'] = "<pre>" . print_r($vars) . "</pre>";
 			}
 			
 			break;
