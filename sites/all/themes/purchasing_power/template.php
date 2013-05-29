@@ -13,15 +13,21 @@ drupal_add_library( 'system', 'ui.dialog' );
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
-function get_partner_logo($domain, &$vars) {
+function get_partner_info($domain, &$vars) {
 	$c = mysql_connect("localhost", "drupal", "drupal");
 	mysql_select_db("drupal");
-	$result = mysql_query("SELECT logo_url from ppc_client where upper(domain)='" . $domain . "';");
+	$result = mysql_query("SELECT logo_url, phone_nbr from ppc_client where upper(domain)='" . $domain . "';");
 	$row = mysql_fetch_assoc($result);
 	$logo_url = $row['logo_url'];
+	$phone_nbr = $row['phone_nbr'];
+	session_start();
 	if (strlen($logo_url) > 0) {
-		$partner_logo_url = '<img src="/sites/all/themes/purchasing_power/img/' . $logo_url . '" class="partnerLogo"/>';
+		$partner_logo_url = '<img src="/sites/all/themes/purchasing_power/img/' . $logo_url . '" id="partnerLogo" class="partnerLogo"/>';
 		$vars['partner_logo_img'] =  $partner_logo_url;
+		$_SESSION['partner_logo_img'] = $partner_logo_url;
+	}
+	if (strlen($phone_nbr) > 0) {
+		$_SESSION['partner_phone_nbr'] = $phone_nbr;
 	}
 	return $retval;
 }
@@ -54,9 +60,8 @@ function purchasing_power_alpha_process_region( &$vars ){
 
 
 				$domain = $_GET["domain"];
-				$vars['domain'] = get_partner_logo($domain);
 				if ($domain) {
-					get_partner_logo($domain, &$vars);
+					get_partner_info($domain, &$vars);
 				}
 				//$vars['debug_info'] = "<pre>" . print_r($vars) . "</pre>";
 			}
